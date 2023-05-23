@@ -1,0 +1,46 @@
+﻿<Window x:Class="DemoEkz2Varik.AdminPanelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoEkz2Varik"
+        mc:Ignorable="d"
+        Title="AdminPanelWindow" Height="900" Width="1800" IsVisibleChanged="Window_IsEnabledChanged">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="30" HorizontalAlignment="Left" x:Name="FIO"></TextBlock>
+        <Button x:Name="exitButton" Click="exitButton_Click" Width="300" Height="50" HorizontalAlignment="Right" Background="#A2FE91" FontSize="30" Margin="0,10,20,10" Grid.Row="0">выйти</Button>
+        
+            <DataGrid Grid.Row="1"  AutoGenerateColumns="False" IsReadOnly="True" x:Name="DGridProducts">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductArticleNumber" Binding="{Binding ProductArticleNumber}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductName" Binding="{Binding ProductName}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductDescription" Binding="{Binding ProductDescription}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductCategory" Binding="{Binding ProductCategory}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductPhoto" Binding="{Binding ProductPhoto}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductManufacturer" Binding="{Binding ProductManufacturer}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductCost" Binding="{Binding ProductCost}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductDiscountAmount" Binding="{Binding ProductDiscountAmount}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductQuantityInStock" Binding="{Binding ProductQuantityInStock}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="24" Width="*" Header="ProductStatus" Binding="{Binding ProductStatus}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="редактировать" Name="BtnEgit" Click="BtnEgit_Click" Width="100" Height="60"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+            <Button Margin="0 0 30 0" Width="400" x:Name="addEditButton" Click="addEditButton_Click">Добавить продукт</Button>
+            <Button Margin="0 0 30 0" Width="400" Click="ListProduct_Click">Список товаров</Button>
+            <Button Width="400" x:Name="deleteButton" Click="deleteButton_Click">удалить продукт</Button>
+        </StackPanel>
+    </Grid>
+</Window>
